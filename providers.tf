@@ -9,4 +9,8 @@ terraform {
 }
 
 # Configure Providers
-provider "azurerm" {}
+provider "azurerm" {
+  features {
+    
+  }
+}

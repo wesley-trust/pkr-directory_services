@@ -3,7 +3,7 @@ stages:
   pool:
     vmImage: 'ubuntu-latest'
   dependsOn: Plan
-  condition: and(not(failed()), not(canceled()))
+  condition: and(not(failed()), not(canceled()), ne(dependencies.Plan.outputs['Evaluate.OPAVariable.AutoApproveShouldRun'], 'true'))
   jobs:
 
   # Apply Jobs

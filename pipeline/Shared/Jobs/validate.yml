@@ -13,6 +13,3 @@ jobs:
 
   # Run steps
   - template: ./Steps/validate.yml@tfpipeline-shared
-
-  # Run Packer steps
-  - template: ./Steps/packer/validate.yml@tfpipeline-shared

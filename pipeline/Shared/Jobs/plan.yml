@@ -16,3 +16,6 @@ jobs:
 
   # Run steps
   - template: ./Steps/plan.yml@tfpipeline-shared
+
+  # Run Packer steps
+  - template: ./Steps/packer/validate.yml@tfpipeline-shared

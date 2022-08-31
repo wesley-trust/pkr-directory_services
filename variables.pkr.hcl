@@ -17,10 +17,10 @@ variable "service_deployment" {
   default     = "01"
 }
 
-variable "service_location" {
+variable "service_location_prefix" {
   description = "Desired location for each service environment"
   type        = string
-  default     = "UKSouth"
+  default     = "UKS"
 }
 
 variable "service_vm_size" {

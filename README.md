@@ -1,2 +1,2 @@
-# pkr-directory_services
+# packer-testing
 Testing packer

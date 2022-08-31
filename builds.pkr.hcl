@@ -11,7 +11,7 @@ build {
   # Build specific provisioner
   provisioner "powershell" {
     inline = [
-      "$features = @('AD-Domain-Services', 'DNS)",
+      "$features = @('AD-Domain-Services', 'DNS')",
       "foreach ($feature in $features){Install-WindowsFeature -Name $feature}",
     ]
   }

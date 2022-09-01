@@ -10,15 +10,10 @@ import input as tfplan
 blast_radius := 100
 
 # weights assigned for each operation on each resource-type
-weights := {
-	# Resource Group
-	"azurerm_resource_group": {"delete": 200, "create": 100, "modify": 1},
-}
+weights := {"azurerm_resource_group": {"delete": 200, "create": 100, "modify": 1}}
 
 # Consider exactly these resource types in calculations
-resource_types := {
-	"azurerm_resource_group",
-}
+resource_types := {"azurerm_resource_group"}
 
 #########
 # Policy

@@ -56,7 +56,7 @@ func TestApplyDefault(t *testing.T) {
 
 		// The path to where the Packer code is located
 		WorkingDir: rootFolder,
-		Template:   "../builds.pkr.hcl",
+		Template:   "builds.pkr.hcl",
 
 		// Variables to pass to the Packer code using -var options
 		Vars: map[string]string{

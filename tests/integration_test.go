@@ -24,7 +24,7 @@ func TestApplyDefault(t *testing.T) {
 	uniqueID := random.UniqueId()
 	testREF := "Testing"
 	serviceDeployment := testREF + "-" + uniqueID
-	serviceEnvironment:= "default"
+	serviceEnvironment := "default"
 
 	// Define variables
 	//locations := []string{"UK South"}
@@ -40,7 +40,7 @@ func TestApplyDefault(t *testing.T) {
 
 		// Variables to pass to the Terraform code using -var options
 		Vars: map[string]interface{}{
-			"service_deployment": serviceDeployment,
+			"service_deployment":  serviceDeployment,
 			"service_environment": serviceEnvironment,
 		},
 	})
@@ -55,12 +55,12 @@ func TestApplyDefault(t *testing.T) {
 	packerOptions := &packer.Options{
 
 		// The path to where the Packer code is located
-		WorkingDir : = rootFolder,
-		Template: "../builds.pkr.hcl",
+		WorkingDir: rootFolder,
+		Template:   "../builds.pkr.hcl",
 
 		// Variables to pass to the Packer code using -var options
 		Vars: map[string]string{
-			"service_deployment": serviceDeployment,
+			"service_deployment":  serviceDeployment,
 			"service_environment": serviceEnvironment,
 		},
 	}

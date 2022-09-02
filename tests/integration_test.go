@@ -26,9 +26,6 @@ func TestApplyDefault(t *testing.T) {
 	serviceDeployment := testREF + "-" + uniqueID
 	serviceEnvironment := "default"
 
-	// Define variables
-	//locations := []string{"UK South"}
-
 	// Concatenate expected resource group name
 	//resourceGroupName := "Services-Test-UKS-" + serviceDeployment + "-rg"
 
@@ -60,7 +57,7 @@ func TestApplyDefault(t *testing.T) {
 		// The path to where the Packer code is located
 		WorkingDir: rootFolder,
 
-		//Template:   "builds.pkr.hcl",
+		// Specifies that all files within the current directory will be used
 		Template: ".",
 
 		// Variables to pass to the Packer code using -var options

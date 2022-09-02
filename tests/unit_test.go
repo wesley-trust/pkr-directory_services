@@ -23,9 +23,6 @@ func TestPlanDefault(t *testing.T) {
 	testREF := "Testing"
 	serviceDeployment := testREF + "-" + uniqueID
 
-	// Define variables
-	//locations := []string{"UK South"}
-
 	// Enable retryable error
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
 

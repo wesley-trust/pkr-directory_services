@@ -11,7 +11,7 @@ import (
 )
 
 func TestApplyDefault(t *testing.T) {
-	t.Parallel()
+	//t.Parallel()
 
 	// Root folder where Terraform files should be (relative to the test folder)
 	rootFolder := "../"

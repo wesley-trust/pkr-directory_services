@@ -13,5 +13,8 @@ jobs:
   # Run common steps
   - template: ./Steps/common.yml@tfpipeline-shared
 
+  # Run Packer Integration steps
+  - template: ./Steps/packer/integration.yml@tfpipeline-shared
+
   # Run Integration steps
   - template: ./Steps/integration.yml@tfpipeline-shared

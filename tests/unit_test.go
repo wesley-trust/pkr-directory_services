@@ -9,7 +9,7 @@ import (
 )
 
 func TestPlanDefault(t *testing.T) {
-	t.Parallel()
+	//t.Parallel()
 
 	// Root folder where Terraform files should be (relative to the test folder)
 	rootFolder := "../"
@@ -22,9 +22,6 @@ func TestPlanDefault(t *testing.T) {
 	uniqueID := random.UniqueId()
 	testREF := "Testing"
 	serviceDeployment := testREF + "-" + uniqueID
-
-	// Define variables
-	//locations := []string{"UK South"}
 
 	// Enable retryable error
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{

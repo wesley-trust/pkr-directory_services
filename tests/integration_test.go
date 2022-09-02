@@ -4,13 +4,14 @@ import (
 	"os"
 	"testing"
 
+	"github.com/gruntwork-io/terratest/modules/packer"
 	"github.com/gruntwork-io/terratest/modules/random"
 	"github.com/gruntwork-io/terratest/modules/terraform"
 	//"github.com/stretchr/testify/assert"
 )
 
 func TestApplyDefault(t *testing.T) {
-	t.Parallel()
+	//t.Parallel()
 
 	// Root folder where Terraform files should be (relative to the test folder)
 	rootFolder := "../"
@@ -23,9 +24,7 @@ func TestApplyDefault(t *testing.T) {
 	uniqueID := random.UniqueId()
 	testREF := "Testing"
 	serviceDeployment := testREF + "-" + uniqueID
-
-	// Define variables
-	//locations := []string{"UK South"}
+	serviceEnvironment := "default"
 
 	// Concatenate expected resource group name
 	//resourceGroupName := "Services-Test-UKS-" + serviceDeployment + "-rg"
@@ -38,7 +37,8 @@ func TestApplyDefault(t *testing.T) {
 
 		// Variables to pass to the Terraform code using -var options
 		Vars: map[string]interface{}{
-			"service_deployment": serviceDeployment,
+			"service_deployment":  serviceDeployment,
+			"service_environment": serviceEnvironment,
 		},
 	})
 
@@ -47,6 +47,28 @@ func TestApplyDefault(t *testing.T) {
 
 	// Run `terraform init` and `terraform apply`. Fail the test if there are any errors.
 	terraform.InitAndApply(t, terraformOptions)
+
+	// Packer Options
+	packerOptions := &packer.Options{
+
+		// Use standard plugin path, as Packer Init is run separately
+		DisableTemporaryPluginPath: true,
+
+		// The path to where the Packer code is located
+		WorkingDir: rootFolder,
+
+		// Specifies that all files within the current directory will be used
+		Template: ".",
+
+		// Variables to pass to the Packer code using -var options
+		Vars: map[string]string{
+			"service_deployment":  serviceDeployment,
+			"service_environment": serviceEnvironment,
+		},
+	}
+
+	// Run Packer build
+	packer.BuildArtifact(t, packerOptions)
 
 	// Run `terraform output` to get the values of output variables
 	//output := terraform.Output(t, terraformOptions, "resourceGroupName")

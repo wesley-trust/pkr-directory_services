@@ -2,7 +2,7 @@
 variable "service_name" {
   description = "Desired name for the provisioned resources"
   type        = string
-  default     = "ImageServices-domain_services"
+  default     = "Image-domain_services"
 }
 
 variable "service_environment" {
@@ -23,6 +23,7 @@ variable "service_location" {
   default     = "UK South"
 }
 
+# The RegEx used within Terraform in the Locals to get the location prefix, didn't work with Packer
 variable "service_location_prefix" {
   description = "Desired location for each service environment"
   type        = string

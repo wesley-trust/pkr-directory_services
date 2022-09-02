@@ -2,7 +2,7 @@
 variable "service_name" {
   description = "Desired name for the provisioned resources"
   type        = string
-  default     = "ImageServices-domain_services"
+  default     = "Image-domain_services"
 }
 
 variable "service_environment" {

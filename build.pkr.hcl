@@ -2,10 +2,12 @@
 build {
 
   source "source.azure-arm.windows" {
-    image_sku          = "2022-datacenter-azure-edition-smalldisk"
-    managed_image_name = "windows_server_2022-domain_services"
+    image_sku          = var.image_sku
+    managed_image_name = var.managed_image_name
 
     managed_image_resource_group_name = local.resource_group_name
+
+    virtual_network_name = var.virtual_network_name
   }
 
   # Build specific provisioner

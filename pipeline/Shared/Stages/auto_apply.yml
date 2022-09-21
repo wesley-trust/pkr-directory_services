@@ -1,7 +1,6 @@
 stages:
 - stage: AutoApply
-  pool:
-    vmImage: 'ubuntu-latest'
+  pool: P-UKS-LIN
   dependsOn: Plan
   condition: and(not(failed()), not(canceled()), eq(dependencies.Plan.outputs['Evaluate.OPAVariable.AutoApproveShouldRun'], 'true'))
   jobs:

@@ -74,5 +74,5 @@ variable "resource_replication_mode" {
 variable "provision_shared_vm_image" {
   description = "Whether to provision shared VM image"
   type        = bool
-  default     = false
+  default     = true
 }

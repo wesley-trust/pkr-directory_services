@@ -3,7 +3,7 @@ jobs:
   displayName: 'Create Plan'
   dependsOn: New
   condition: or(eq(dependencies.Import.result,'Succeeded'), eq(dependencies.New.result,'Succeeded'))
-  continueOnError: false
+  continueOnError: true
   steps:
   
   # Checkout shared steps

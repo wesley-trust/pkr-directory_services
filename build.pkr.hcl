@@ -8,6 +8,26 @@ build {
     managed_image_resource_group_name = local.resource_group_name
 
     virtual_network_name = var.virtual_network_name
+
+    azure_tag {
+      name  = "deployment"
+      value = var.service_deployment
+    }
+
+    azure_tag {
+      name  = "environment"
+      value = var.service_environment
+    }
+
+    azure_tag {
+      name  = "name_prefix"
+      value = var.managed_image_name
+    }
+
+    azure_tag {
+      name  = "version"
+      value = "latest"
+    }
   }
 
   # Build specific provisioner

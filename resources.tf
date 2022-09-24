@@ -5,6 +5,7 @@ resource "azurerm_shared_image" "definition" {
   resource_group_name = data.azurerm_shared_image_gallery.select.resource_group_name
   location            = data.azurerm_shared_image_gallery.select.location
   os_type             = var.resource_platform
+  hyper_v_generation  = "V2"
 
   identifier {
     publisher = var.resource_publisher

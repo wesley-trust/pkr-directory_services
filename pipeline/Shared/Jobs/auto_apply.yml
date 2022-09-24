@@ -15,4 +15,4 @@ jobs:
   - template: ./Steps/apply.yml@tfpipeline-shared
 
   # Run Packer steps
-  - template: ./Steps/packer/build.yml@tfpipeline-shared
+  #- template: ./Steps/packer/build.yml@tfpipeline-shared

@@ -60,13 +60,19 @@ variable "resource_gallery_name" {
 }
 
 variable "resource_storage_account_type" {
-  description = "Name of the shared image gallery to create the shared image"
+  description = "Storage type for the shared image"
   type        = string
   default     = "Standard_LRS"
 }
 
 variable "resource_replication_mode" {
-  description = "Name of the shared image gallery to create the shared image"
+  description = "Replication mode for the shared image"
   type        = string
   default     = "Shallow"
+}
+
+variable "provision_shared_vm_image" {
+  description = "Whether to provision shared VM image"
+  type        = bool
+  default     = false
 }

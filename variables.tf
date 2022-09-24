@@ -26,7 +26,7 @@ variable "service_location" {
 variable "resource_publisher" {
   description = "Publisher for the provisioned resources"
   type        = string
-  default     = "MicrosoftWindowsServer"
+  default     = "WindowsServer"
 }
 
 variable "resource_offer" {

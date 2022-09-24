@@ -1,0 +1,18 @@
+stages:
+- stage: RePlan
+  pool:
+    vmImage: 'ubuntu-latest'
+  dependsOn: 
+  - AutoApply
+  - Apply
+  condition: and(not(canceled()), or(not(eq(dependencies.Apply.result, 'Skipped')), not(eq(dependencies.AutoApply.result, 'Skipped'))), eq(dependencies.Plan.outputs['Plan.Variable.ShouldRun'], 'true'))
+  jobs:
+  
+  # Delay Job
+  - template: ../Jobs/delay.yml
+
+  # Plan Jobs
+  - template: ../Jobs/replan.yml
+
+  # Plan Evaluation Job
+  - template: ../Jobs/reevaluate.yml
